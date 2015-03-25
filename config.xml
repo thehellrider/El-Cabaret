@@ -1,4 +1,4 @@
-<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.itconsultors.demoartista" version="1.0.0">
+<widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.itconsultors.democlub" version="1.0.0">
   <name>El Club</name>
   <description>Eventos, galerias y mas</description>
   <author href="http://itconsultors.com" email="info@itconsultors.com">itconsultors</author>
