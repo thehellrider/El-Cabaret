@@ -1,6 +1,6 @@
 <widget xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0" id="com.itconsultors.demoartista" version="1.0.0">
-  <name>El Artista</name>
-  <description>Escucha mis canciones, mis videos y mis ultimas noticias</description>
+  <name>El Club</name>
+  <description>Eventos, galerias y mas</description>
   <author href="http://itconsultors.com" email="info@itconsultors.com">itconsultors</author>
   <content src="index.html"/>
   <preference name="permissions" value="none"/>
