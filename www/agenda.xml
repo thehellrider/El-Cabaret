@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<agenda>
+	<evento>
+	<titulo>BRASIL 2014</titulo>
+	<fecha>2014-03-07 • Viernes - 20h00</fecha>
+	<descripcion>El mundial Brasil 2014 se disfruto en Doll House con Seducción, Pasión y Exclusividad.</descripcion>
+	<foto>evento1.jpg</foto>
+	</evento>
+	<evento>
+	<titulo>ELIMINATORIAS</titulo>
+	<fecha>2014-03-10 • Lunes - 19H30</fecha>
+	<descripcion>Todos festejamos la victoria de nuestra selección en Doll House. Siempre tenemos eventos especiales solo para ti.</descripcion>
+	<foto>evento2.jpg</foto>
+	</evento>
+	<evento>
+	<titulo>CARNAVAL</titulo>
+	<fecha>2015-03-11 • 19H30</fecha>
+	<descripcion>Ven y disfruta de la gran fiesta de Carnaval en Doll House.</descripcion>
+	<foto>evento3.jpg</foto>
+	</evento>
+	<evento>
+	<titulo>FIESTAS DE QUITO</titulo>
+	<fecha>2014-03-12 • Miércoles - 19h30</fecha>
+	<descripcion>Disfruta las fiestas de la ciudad en el ambiente mas sexy!</descripcion>
+	<foto>evento4.jpg</foto>
+	</evento>
+	<evento>
+	<titulo>PLAYBOY PARTY</titulo>
+	<fecha>2014-03-17 • Lunes - 19h30</fecha>
+	<descripcion>Este fin de semana la máxima diversión en un ambiente exclusivo.</descripcion>
+	<foto>evento5.jpg</foto>
+	</evento>	
+</agenda>

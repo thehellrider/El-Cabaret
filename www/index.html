@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>El Cabaret</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.2.css" />
+    <link rel="stylesheet" href="css/slider.css" />    
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.mobile-1.3.2.js"></script>    
+    <!--player--> 
+    <link href="css/jplayer.blue.monday.css" rel="stylesheet" type="text/css" />	
+    <script type="text/javascript" src="js/jquery.jplayer.min.js"></script>
+    <script type="text/javascript" src="js/jplayer.playlist.min.js"></script> 
+    <!-- gallery --> 
+    <link rel="stylesheet" type="text/css" href="css/lightcase.css">
+    <link rel="stylesheet" type="text/css" href="css/webplate.css">    
+    <link rel="stylesheet" type="text/css" href="css/lightcase.style.css">
+    <script type="text/javascript" src="js/lightcase.min.js"></script>   
+   	<script type="text/javascript">
+    	jQuery(document).ready(function($) {
+			$('a[data-rel^=lightcase]').lightcase();
+		});
+    </script>      
+    <!--xml agenda-->
+	<script type="text/javascript">
+    $(document).ready(function(){        
+    $.ajax({
+    type: "GET",
+    url: "agenda.xml",
+    dataType: "xml",
+    success: function(xml) {
+    
+    var container = document.getElementById("catalogue");
+    container.setAttribute('data-role', 'collapsible-set');
+    
+    $(xml).find('evento').each(function(){
+    var release = document.createElement("div");
+    release.setAttribute('data-role', 'collapsible');
+    var titulo = $(this).find('titulo').text();
+    var fecha = $(this).find('fecha').text();
+    var descripcion = $(this).find('descripcion').text();
+    var foto = $(this).find('foto').text();
+    release.innerHTML = "<h3>" + titulo + "<br><span class='sub'>" + fecha + "</span></h3><p><img class='fullscreen' src='img/"+foto+"'/><br>" + descripcion + "</p>";
+    container.appendChild(release);
+    });    
+    var catDiv = $('#catalogue');
+    catDiv.find('div[data-role=collapsible]').collapsible({theme:'c',refresh:true});
+    }
+    });
+    });
+    </script>
+    <!-------fin xml agenda------>
+<style>
+.galereya-top {
+position: fixed;
+top:40px;
+}
+</style>
+</head>
+<body>
+<div id="container">
+<!---------------------------home----------------------------------->
+    <div data-role="page" id="home">
+        <header data-role="header" data-position="fixed">
+            <h1>Bienvenidos</h1>
+        </header>
+  		<div id="navigation">
+        <div class="prevbutton"><button class="button-left"><i class="fa fa-angle-left fa-2x"></i></button></div>
+        <div class="nextbutton"><button class="button-right"><i class="fa fa-angle-right fa-2x"></i></button></div>
+        </div>        
+        <div class="slides">
+          <div class="slide" style="background-image: url(img/foto1.jpg)"></div>
+          <div class="slide" style="background-image: url(img/foto2.jpg)"></div>
+          <div class="slide" style="background-image: url(img/foto3.jpg)"></div>
+          <div class="slide" style="background-image: url(img/foto4.jpg)"></div>
+        </div>      
+        <script src="js/backgroundslider.js"></script> 
+        <script>
+        $(document).ready(function(){          
+          var slideContainer = $('.slides');
+            $(".slides").BackgroundSlider();          
+        });
+        </script>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home">Inicio</a></li>
+                    <li><a href="#noticias" data-icon="grid">Eventos</a></li>
+                    <li><a href="#fotos" data-icon="grid">Galeria</a></li>                    
+                    <li><a href="#info" data-icon="info">Reservas</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+<!---------------------------noticias------------------------------------->
+    <div data-role="page" id="noticias">
+        <header data-role="header">
+            <h1>Noticias & Eventos</h1>
+        </header>
+        <article data-role="content">
+            <div id="catalogue">
+                <!--lista de eventos-->
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home">Inicio</a></li>
+                    <li><a href="#noticias" data-icon="grid">Eventos</a></li>
+                    <li><a href="#fotos" data-icon="grid">Galeria</a></li>                    
+                    <li><a href="#info" data-icon="info">Reservas</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+<!---------------------------galeria de fotos------------------------------------->
+    <div data-role="page" id="fotos">
+        <header data-role="header">
+            <h1>Galeria</h1>
+        </header>
+        <div class="showcase-list">
+       		<a class="showcase" href="img/foto1.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto1.jpg');"></div></a>
+            <a class="showcase" href="img/foto2.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto2.jpg');"></div></a>
+            <a class="showcase" href="img/foto3.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto3.jpg');"></div></a>
+            <a class="showcase" href="img/foto4.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto4.jpg');"></div></a>
+            <a class="showcase" href="img/foto5.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto5.jpg');"></div></a>
+            <a class="showcase" href="img/foto6.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto6.jpg');"></div></a>
+            <a class="showcase" href="img/foto7.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto7.jpg');"></div></a>
+            <a class="showcase" href="img/foto8.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto8.jpg');"></div></a>
+            <a class="showcase" href="img/foto1.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto1.jpg');"></div></a>
+            <a class="showcase" href="img/foto2.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto2.jpg');"></div></a>
+            <a class="showcase" href="img/foto3.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto3.jpg');"></div></a>
+            <a class="showcase" href="img/foto4.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto4.jpg');"></div></a>
+            <a class="showcase" href="img/foto5.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto5.jpg');"></div></a>
+            <a class="showcase" href="img/foto6.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto6.jpg');"></div></a>
+            <a class="showcase" href="img/foto7.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto7.jpg');"></div></a>
+            <a class="showcase" href="img/foto8.jpg" data-rel="lightcase:myCollection:slideshow" title="Your title"><div class="image wallpaper" data-wallpaper="img/foto1t.jpg" style="height: 288px; background-image: url('img/foto8.jpg');"></div></a>
+        </div>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home">Inicio</a></li>
+                    <li><a href="#noticias" data-icon="grid">Eventos</a></li>
+                    <li><a href="#fotos" data-icon="grid">Galeria</a></li>                    
+                    <li><a href="#info" data-icon="info">Reservas</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+<!---------------------------videos------------------------------------->
+    <div data-role="page" id="videos">
+        <header data-role="header">
+            <h1>Videos</h1>
+        </header>
+        <article data-role="content">            
+           <div id="jp_container_2" class="jp-video jp-video-270p" role="application" aria-label="media player">
+	<div class="jp-type-playlist">
+		<div id="jquery_jplayer_2" class="jp-jplayer"></div>
+		<div class="jp-gui">
+			<div class="jp-video-play">
+				<button class="jp-video-play-icon" role="button" tabindex="0">play</button>
+			</div>
+			<div class="jp-interface">
+				<div class="jp-progress">
+					<div class="jp-seek-bar">
+						<div class="jp-play-bar"></div>
+					</div>
+				</div>
+				<div class="jp-current-time" role="timer" aria-label="time">&nbsp;</div>
+				<div class="jp-duration" role="timer" aria-label="duration">&nbsp;</div>
+				<div class="jp-controls-holder">
+					<div class="jp-controls">
+						<div class="jp-previous" role="button" tabindex="0">previous</div>
+						<div class="jp-play" role="button" tabindex="0">play</div>
+						<div class="jp-next" role="button" tabindex="0">next</div>
+						<div class="jp-stop" role="button" tabindex="0">stop</div>
+					</div>
+					<div class="jp-volume-controls">
+						<div class="jp-mute" role="button" tabindex="0">mute</div>
+						<div class="jp-volume-max" role="button" tabindex="0">max volume</div>
+						<div class="jp-volume-bar">
+							<div class="jp-volume-bar-value"></div>
+						</div>
+					</div>
+					<div class="jp-toggles">
+						<div class="jp-repeat" role="button" tabindex="0">repeat</div>
+						<div class="jp-shuffle" role="button" tabindex="0">shuffle</div>
+						<div class="jp-full-screen" role="button" tabindex="0">full screen</div>
+					</div>
+				</div>
+				<div class="jp-details">
+					<div class="jp-title" aria-label="title">&nbsp;</div>
+				</div>
+			</div>
+		</div>
+		<div class="jp-playlist">
+			<ul>
+				<!-- The method Playlist.displayPlaylist() uses this unordered list -->
+				<li>&nbsp;</li>
+			</ul>
+		</div>
+		
+	</div>
+</div>         
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home">Inicio</a></li>
+                    <li><a href="#noticias" data-icon="grid">Eventos</a></li>
+                    <li><a href="#fotos" data-icon="grid">Galeria</a></li>                    
+                    <li><a href="#info" data-icon="info">Reservas</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+<!---------------------------info------------------------------------->
+    <div data-role="page" id="info">
+        <header data-role="header">
+            <h1>Info & Reservas</h1>
+        </header>
+        <article data-role="content">
+            <img src="img/contact.jpg" class="fullscreen" />
+            <p><strong>Dirección:</strong><br>De los Tulipanes E10-144 y Av. 6 de Diciembre</p>
+            <p><strong>Email:</strong><br>info@dollhouse.com.ec</p>
+            <p><strong>Teléfonos:</strong>593.2.244.7891</p>
+            <p>Quito - Ecuador</p>
+            <div id="form">
+            <h1>Reservas</h1>
+            <form name="form1" method="post" action="">
+            <label>Nombre</label><br>
+              <input type="text" name="nombre" id="nombre">
+            
+            <label>Teléfono</label> <br>
+              <input type="text" name="nombre" id="nombre">
+           
+            <label>E-mail </label> <br>
+              <input type="text" name="nombre" id="nombre">
+          
+            <label>Comentarios</label> <br>
+              <textarea name="comentario" id="comentario"></textarea> 
+              <input type="submit" name="submit" id="submit" value="Enviar">
+            </form>
+            </div>
+        </article>
+        <footer data-role="footer" data-position="fixed">
+            <nav data-role="navbar">
+                <ul>
+                    <li><a href="#home" data-icon="home">Inicio</a></li>
+                    <li><a href="#noticias" data-icon="grid">Eventos</a></li>
+                    <li><a href="#fotos" data-icon="grid">Galeria</a></li>                   
+                    <li><a href="#info" data-icon="info">Reservas</a></li>
+                </ul>
+            </nav>
+        </footer>
+    </div>
+<!--------------------->
+</div>
+</body>
+</html>
